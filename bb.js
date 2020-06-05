@@ -4,14 +4,17 @@ const data = require('./data.json');
 const network = new brain.recurrent.LSTM();
 
 const trainingData = data.map(item => ({
-  input: item.text,
-  output: item.category
+    input: item.text,
+    output: item.category
 }));
 
 network.train(trainingData, {
-  iterations: 2000
+    iterations: 50
 });
 
-const output = network.run('The code has some bugs');
+
+const output = network.run('nexson');
+
+
 
 console.log(`Category: ${output}`);
